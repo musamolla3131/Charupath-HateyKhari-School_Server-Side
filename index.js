@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const phones = require('./phones.json');
+const courses = require('./courses.json');
 const port = process.env.PORT || 3131;
 
 app.use(cors());
@@ -10,15 +10,15 @@ app.get('/', (req, res) => {
     res.send("Hello My Friend")
 });
 
-app.get('/phones', (req, res) => {
-    res.send(phones);
+app.get('/courses', (req, res) => {
+    res.send(courses);
 })
 
-app.get('/phones/:id', (req, res) => {
+app.get('/courses/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    const phone = phones.find(phone => phone.id === id) || {};
+    const course = courses.find(course => course.id === id) || {};
 
-    res.send(phone);
+    res.send(course);
 })
 
 app.listen(port, () => {
