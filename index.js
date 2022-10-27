@@ -17,22 +17,25 @@ app.get('/', (req, res) => {
     res.send("Charupath API Running")
 });
 
+app.get('/courses', (req, res) => {
+    res.send(courses);
+});
+
 app.get('/categories', (req, res) => {
     res.send(categories);
 });
 
-app.get('/courses', (req, res) => {
-    res.send(courses);
-})
 
 app.get('/category/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    if (id === 8) {
+    if (id === 12) {
         res.send(courses);
     }
-    const course = categories.find(course => course.id === id) || {};
+    else {
+        const cource_category = courses.filter(n => n.id === id);
+        res.send(cource_category);
+    }
 
-    res.send(course);
 })
 
 app.listen(port, () => {
