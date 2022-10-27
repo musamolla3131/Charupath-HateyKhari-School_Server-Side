@@ -26,7 +26,7 @@ app.get('/categories', (req, res) => {
 });
 
 
-app.get('/category/:id', (req, res) => {
+app.get('/courses/:id', (req, res) => {
     const id = parseInt(req.params.id);
     if (id === 12) {
         res.send(courses);
