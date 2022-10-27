@@ -1,10 +1,16 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
 const courses = require('./courses.json');
 const port = process.env.PORT || 3131;
 
+const app = express();
+
+// Middleware
 app.use(cors());
+app.use(express.json());
+
+
+
 
 app.get('/', (req, res) => {
     res.send("Hello My Friend")
